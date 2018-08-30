@@ -1,0 +1,60 @@
+//本人远程仓库：  账号：wbmhzz  密码：qq13459887124qwe
+https://github.com/wbmhzz/test
+
+// ???  不解
+git pull --rebase origin master
+
+//远程仓库，拷贝到本地仓库
+git clone https://github.com/wbmhzz/test.git
+
+
+//本地仓库（代码）提交到远程仓库
+git push origin master （如果执行失败，可以先执行git pull --rebase origin master，接着在执行git push origin master） 
+
+//初始化仓库
+git init
+
+$ git push origin master
+git: 'credential-strore' is not a git command. See 'git --help'.
+
+The most similar command is
+        credential-store
+Username for 'https://github.com':wbmhzz
+git: 'credential-strore' is not a git command. See 'git --help'.
+
+The most similar command is
+        credential-store
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/wbmhzz/test.git/'
+//解决方案：
+参考：https://blog.csdn.net/u013977285/article/details/79726354
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
