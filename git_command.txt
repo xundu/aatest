@@ -1,5 +1,8 @@
-//本人远程仓库：  账号：wbmhzz  密码：qq13459887124qwe
+//（本人）远程仓库：账号：wbmhzz  密码：qq13459887124qwe  邮箱：1209130326@qq.com
 https://github.com/wbmhzz/test
+
+//本地仓库的账户和邮箱
+账户：xiyao   邮箱：304098726@qq.com
 
 // ???  不解
 git pull --rebase origin master
@@ -7,6 +10,12 @@ git pull --rebase origin master
 //远程仓库，拷贝到本地仓库
 git clone https://github.com/wbmhzz/test.git
 
+$ git clone https://github.com/wbmhzz/test.git
+Cloning into 'test'...
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+//表示拷贝成功
 
 //本地仓库（代码）提交到远程仓库
 git push origin master （如果执行失败，可以先执行git pull --rebase origin master，接着在执行git push origin master） 
@@ -29,32 +38,15 @@ fatal: Authentication failed for 'https://github.com/wbmhzz/test.git/'
 //解决方案：
 参考：https://blog.csdn.net/u013977285/article/details/79726354
 
+The most similar command is
+        credential-store
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 309 bytes | 309.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/wbmhzz/test.git
+   dad68e7..d35c429  master -> master
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//只有这样，才表示从远仓库下载到本地成功
