@@ -1,5 +1,6 @@
 //（本人）远程仓库：账号：wbmhzz  密码：qq13459887124qwe  邮箱：1209130326@qq.com
 https://github.com/wbmhzz/test
+https://github.com/wbmhzz/test/commits?author=xundu
 
 //本地仓库的账户和邮箱
 账户：xiyao   邮箱：304098726@qq.com
