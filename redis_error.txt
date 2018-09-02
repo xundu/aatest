@@ -1,0 +1,205 @@
+redis 安装参考：
+https://www.cnblogs.com/renzhicai/p/7773080.html
+
+基本命令
+https://blog.csdn.net/qq_40550973/article/details/80821864
+
+
+[root@node1 redis3.0]# make
+问题1：
+linux CentOS6下安装redis报错 make[1]: *** [adlist.o] 错误 127。[安装gcc]
+解决方案：
+因为Redis是C实现的，需要gcc来进行编译，所以原因是系统未安装gcc，按顺序执行：
+yum install cpp
+yum install binutils
+yum install glibc
+yum install glibc-kernheaders
+yum install glibc-common
+yum install glibc-devel
+yum install gcc
+yum install make
+因为gcc依赖很多，都执行一下，以防万一
+
+
+问题2：
+cd src && make all
+make[1]: Entering directory `/root/install_packages/redis3.0/src'
+    CC adlist.o
+在包含自 adlist.c：34 的文件中:
+zmalloc.h:50:31: 错误：jemalloc/jemalloc.h：没有那个文件或目录
+zmalloc.h:55:2: 错误：#error "Newer version of jemalloc required"
+make[1]: *** [adlist.o] 错误 1
+make[1]: Leaving directory `/root/install_packages/redis3.0/src'
+make: *** [all] 错误 2
+解决方案： 
+执行命令：make MALLOC=libc
+
+问题3：
+[root@node1 redis3.0]# make test
+cd src && make test
+make[1]: Entering directory `/root/install_packages/redis3.0/src'
+You need tcl 8.5 or newer in order to run the Redis test
+make[1]: *** [test] 错误 1
+make[1]: Leaving directory `/root/install_packages/redis3.0/src'
+make: *** [test] 错误 2
+解决方案：yum install tcl 
+
+问题4：
+!!! WARNING The following tests failed:
+*** [err]: PEXPIRE/PSETEX/PEXPIREAT can set sub-second expires in tests/unit/expire.tcl
+Expected 'somevalue {}' to equal or match '{} {}'
+Cleanup: may take some time... OK
+make[1]: *** [test] 错误 1
+make[1]: Leaving directory `/root/install_packages/redis3.0/src'
+make: *** [test] 错误 2
+解决方案：
+vim修改tests/unit/expire.tcl文件：
+  tags {"slow"} {
+        test {EXPIRE - After 2.1 seconds the key should no longer be here} {
+
+            after 21000
+
+            list [r get x] [r exists x]
+
+        } {{} 0}
+
+    }
+    test {EXPIRE - write on expire should work} {
+
+        r del x
+
+        r lpush x foo
+
+        r expire x 10000
+
+        r lpush x bar
+
+        r lrange x 0 -1
+
+    } {bar foo}
+
+再次执行： make test  出现一下结果
+\o/ All tests passed without errors!
+Cleanup: may take some time... OK
+make[1]: Leaving directory `/root/install_packages/redis3.0/src'
+
+问题5，在eclipse中链接出现：
+redis java.net.SocketTimeoutException: connect timed out
+解决方案：
+防火墙设置：
+     开放6379端口
+/sbin/iptables -I INPUT -p tcp --dport 6379 -j ACCEPT
+     保存配置
+/etc/rc.d/init.d/iptables save
+
+redis 学习文档
+http://doc.redisfans.com/
+
+127.0.0.1:6379> keys *
+1) "four"
+2) "ons"
+3) "three"
+4) "two"
+5) "one"
+127.0.0.1:6379> expire ons 2    //设置两秒过期
+(integer) 1
+127.0.0.1:6379> keys *
+1) "four"
+2) "three"
+3) "two"
+4) "one"
+
+127.0.0.1:6379> set greet hello
+OK
+127.0.0.1:6379> setrange greet 2 x
+(integer) 5
+127.0.0.1:6379> get greet
+"hexlo"
+127.0.0.1:6379> 
+
+flushdb 命令用于清空当前数据库中的所有 key
+
+
+redis全部数据类型命令整合
+string 类型命令
+set      key value 设置相同key会覆盖
+setnx    不存在才设置
+setex    设置,且指定有效期
+setrange 替换字符，如长度不够，不会删除多余的
+msetnx   不存在设置才多个
+msetex   设置多个,且指定有效期
+get      获取key对应的string值，如果key不存在返回nil
+getset   设置key的值，返回key的旧值
+getrange 获取key的value值得字符串
+mget     批量获取
+incr     自增加1
+incrby   自增指定值
+decr     自减1
+decrby   自减指定值
+append   给指定key的字符串追加value，返回新的字符串值得长度
+strlen    取值定key的value值得长度
+
+
+hash 类型命令
+hash    操作跟sting类似
+hset    设置hash filed为指定值
+hget    获取
+hsetnx
+hmset    myhash uid 1 name xiaowang
+hmget    myhash uid  name
+hincrby
+hexists  判断hash key是否存在
+hlen     hash 字段数量
+hdel     删除指定key字段
+hkeys    获取全部字段名
+hvals    获取全部字段值
+hgetall  获取全部字段名与值
+
+list 类型命令
+list是一个链表结构 
+lpush    头部插入一个元素
+lrange   获取list元素
+rpush    尾部插入一个元素
+linsert  在key对应list的特定位置前（before）或者后添加字符串
+lset     指定下标元素值
+lrem     删除n个值相同的元素
+ltrim    保留元素范围
+lpop     从头部删除元素
+rpop     从尾部删除元素
+rpoplpush 把第一个list尾部元素移动到第二个元素的头部
+lindex    获取list中index位置元素
+llen      获取list个数
+
+set 类型命令
+无序集合，不能有重复的值
+sadd      添加元素
+smembers  获取全部元素
+srem      删除指定元素
+spop      随机删除一个元素
+sdiff     获取两个set的差集
+sdiffstore  获取两个set的差集，存储到别外一个set中
+sinter    获取两个set的交集
+sinterstore  获取两个set的交集，存储到别外一个set中
+sunion    获取两个set的并集
+sunionstore 获取两个set的并集，存储到别外一个set中
+smove       从一个set移动到别外一个set中
+scard       获取set元素个数
+sismembers  判断元素是否在set中
+srandmember 随机返回set中的一个元素
+
+sorted set 类型命令
+有序集合
+zadd    添加元素
+zrange  获取zset元素
+zrem    删除指定元素
+zincrby 增减zset顺序
+zrank   获取指定元素顺序
+zrevrank 获取指定元素反转后的顺序
+zrangebyscore 获取顺序区间的元素
+zcount     获取顺序区间的个数
+zcard       获取zset元素个数
+zremrangebyrank 删除指定区间索引元素
+zremrangebyscore 删除指定区间顺序元素
+
+
+
