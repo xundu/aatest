@@ -1,0 +1,155 @@
+<<<<<<< HEAD
+//£¨±¾ÈË£©Ô¶³Ì²Ö¿â£ºÕËºÅ£ºwbmhzz  ÃÜÂë£ºqq13459887124qwe  ÓÊÏä£º1209130326@qq.com
+https://github.com/wbmhzz/test
+https://github.com/wbmhzz/test/commits?author=xundu
+=======
+//²Î¿¼ÕâÎ»´óÉñµÄ  gitchina   Chivalrous
+https://github.com/gitchina
+
+//£¨±¾ÈË£©Ô¶³Ì²Ö¿â£ºÕËºÅ£ºwbmhzz  ÃÜÂë£ºqq13459887124qwe  ÓÊÏä£º1209130326@qq.com
+https://github.com/wbmhzz/test
+>>>>>>> æœ€åæäº¤
+
+//±¾µØ²Ö¿âµÄÕË»§ºÍÓÊÏä
+ÕË»§£ºxiyao   ÓÊÏä£º304098726@qq.com
+
+// ???  ²»½â
+git pull --rebase origin master
+
+//Ô¶³Ì²Ö¿â£¬¿½±´µ½±¾µØ²Ö¿â
+git clone https://github.com/wbmhzz/test.git
+
+$ git clone https://github.com/wbmhzz/test.git
+Cloning into 'test'...
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+//±íÊ¾¿½±´³É¹¦
+
+//±¾µØ²Ö¿â£¨´úÂë£©Ìá½»µ½Ô¶³Ì²Ö¿â
+git push origin master £¨Èç¹ûÖ´ĞĞÊ§°Ü£¬¿ÉÒÔÏÈÖ´ĞĞgit pull --rebase origin master£¬½Ó×ÅÔÚÖ´ĞĞgit push origin master£© 
+
+//³õÊ¼»¯²Ö¿â
+git init
+
+$ git push origin master
+git: 'credential-strore' is not a git command. See 'git --help'.
+
+The most similar command is
+        credential-store
+Username for 'https://github.com':wbmhzz
+git: 'credential-strore' is not a git command. See 'git --help'.
+
+The most similar command is
+        credential-store
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/wbmhzz/test.git/'
+//½â¾ö·½°¸£º
+²Î¿¼£ºhttps://blog.csdn.net/u013977285/article/details/79726354
+
+The most similar command is
+        credential-store
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 309 bytes | 309.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/wbmhzz/test.git
+   dad68e7..d35c429  master -> master
+
+<<<<<<< HEAD
+//Ö»ÓĞÕâÑù£¬²Å±íÊ¾´ÓÔ¶²Ö¿âÏÂÔØµ½±¾µØ³É¹¦
+=======
+//Ö»ÓĞÕâÑù£¬²Å±íÊ¾´ÓÔ¶²Ö¿âÏÂÔØµ½±¾µØ³É¹¦
+
+git ´´½¨·ÖÖ§ ²¢ Ìá½»µ½Ô¶³Ì·ÖÖ§
+²Î¿¼£ºhttps://www.cnblogs.com/bluestorm/p/6252900.html
+gitµÄÖĞÎÄÎÄµµ£ºhttps://git-scm.com/book/zh/v2  
+gitÖĞ¹úÉçÇø£ºhttps://www.oschina.net/question/tag/git
+
+
+
+// ÎóÉ¾µÄ±¾µØ·ÖÖ§»Ö¸´·½·¨https://blog.csdn.net/zhouxiangyu666666/article/details/78730089
+1.   git  log  -g ÕÒ»ØÖ®Ç°Ìá½»µÄcommit,²¢¼ÇÏÂcommit_id
+
+2.   git  branch  newbranch  commit_id
+
+3.   ÇĞ»»µ½newbranch·ÖÖ§£¬¼ì²éÎÄ¼şÊÇ·ñ´æÔÚ
+
+//ÀûÓÃgit reflogÕÒ»Ø´íÎóµÄÖØÖÃ
+https://www.cnblogs.com/xingjunli/p/4958816.html
+https://www.cnblogs.com/luyuefeng/p/8046443.html
+   ÔÚ¿ª·¢ÖĞ¾­³£ĞèÒªreset·ÖÖ§£¬Èç¹ûÔÚresetÇ°Ã»ÓĞ¼Ç×¡·ÖÖ§Ö¸ÏòµÄÌá½»ID£¬ÏëÒªÖØÖÃ»ØÔ­À´µÄÌá½»¿ÖÅÂ´ó¶àÊı¿ª·¢ÕßÊÇÖØĞÂÀ­È¡Ô¶³Ì°æ±¾¿â£¬ÔÙrebase·ÖÖ§¡£µ«Èç¹ûÁ¬²»ÉÏÔ¶³Ì°æ±¾¿â»òÃ»ÓĞÔ¶³Ì°æ±¾ÔõÃ´°ìÄØ£¿gitÌá¹©ÁËÒ»¸öÍì¾È»úÖÆ£¬gitÈÕÖ¾¼ÇÂ¼ÁË·ÖÖ§µÄËùÒÔ±¾µØ±ä¸ü£¬Í¨¹ıËü¼´¿ÉÕÒ»ØÔ­À´µÄ´úÂë¡£
+
+
+//¸Ä±äÀúÊ·
+$ git cat-file -p HEAD
+tree 5e30768fab205d84f86998e3d411d93359e15d53
+parent e2fa0c9d6d1353bc2c513578826a9cfb6cbc52e1
+parent 019afa1667b1f2776acc92181a1234c0ae8f8b20
+author xiyao <304098726@qq.com> 1535731621 +0800
+committer xiyao <304098726@qq.com> 1535731621 +0800
+Merge commit '019afa1667b1f2776acc92181a1234c0ae8f8b20' into aaa
+ÎÒÊÇ´©Ô½Ê±¿Õ
+
+
+//git-stashÓÃ·¨Ğ¡½á
+https://www.cnblogs.com/tocy/p/git-stash-reference.html
+½ñÌìÔÚ¿´Ò»¸öbug£¬Ö®Ç°Ò»¸ö·ÖÖ§µÄ°æ±¾ÊÇÕı³£µÄ£¬ÔÚĞÂµÄ·ÖÖ§ÉÏÉÏ¼ÓÁËºÜ¶àÈÕÖ¾Ã»ÕÒµ½Ô­Òò£¬Ï£Íû»ØËİµ½Ö®Ç°µÄ°æ±¾£¬È·¶¨ÏÂ´ÓÄÄ¸öÌá½»ÒıÈëµÄÎÊÌâ£¬µ«ÊÇ»¹²»Ïë°ÑÏÖÔÚµÄĞŞ¸ÄÌá½»£¬Ò²²»Ï£ÍûÔÚGitÉÏ¿´µ½µ±Ç°ĞŞ¸ÄµÄ°æ±¾£¨´øÓĞ´óÁ¿ÈÕÖ¾ºÍµ÷ÊÔĞÅÏ¢£©¡£Òò´ËÄØ£¬²é²éGitÓĞÃ»ÓĞÌá¹©ÀàËÆ¹¦ÄÜ£¬¾ÍÕÒµ½ÁËgit stashµÄÃüÁî¡£
+$ git stash
+fatal: bad revision 'HEAD'
+fatal: bad revision 'HEAD'
+fatal: Needed a single revision
+You do not have the initial commit yet
+//½â¾ö·½°¸
+
+
+//´´½¨²Ö¿â  ²Î¿¼£ºhttps://blog.csdn.net/chenxiqilin/article/details/53941419
+git init r_git  // ÕâÑùÔÚ×ÀÃæ¾Í¿ÉÒÔÉú³ÉÒ»¸ö .git²Ö¿â£¨ÔÚr_gitÎÄ¼ş¼ĞÏÂ£©
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> æœ€åæäº¤
